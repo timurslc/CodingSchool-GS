@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en" data-current-language="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title data-key="title">Giga Sphere - Advanced Training</title>
+  <link href="https://fonts.googleapis.com/css2?family=Spartan:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <style>
+    /* Reset and basic styling */
+    body {
+      margin: 0;
+      font-family: 'Spartan', sans-serif;
+      line-height: 1.6;
+      background: #fff;
+    }
+
+    /* Header */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 10%;
+      background: #fff;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    header a {
+      text-decoration: none;
+      color: #333;
+      margin: 0 10px;
+      font-size: 1rem;
+    }
+
+    header .enroll-btn {
+      background: #007bff;
+      color: #fff;
+      padding: 8px 15px;
+      border-radius: 5px;
+      font-weight: bold;
+    }
+
+    /* Hero Section */
+    .hero {
+      background: url('https://s3-alpha-sig.figma.com/img/c3c5/e271/64048b70cce2bdcadd8631cd78a309df?Expires=1739145600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=aDgcugDs7qbuFNwkBwUPZIznPUUKC6q5cG8AxEyCMSYcSizra441eBEaDnGjvnrPXa0Gl~9c16C3Wey~Verq0SKB7k~MeaLQqN~NTRXGIGj5ghSBLABQ08~9iOP6RO-m8XIgW8nvwIffZry~HwB6F-a2E8htfNrTVsG35~ccLmNcLnI0cjCDCnpBJMj5IcM9cDmICg0s4YLOFb9PVOytGYkVGDFpsuTkr23jI9zH2qVsbC-T2WcxQkipEwYj5~fMdVZcWu8Mg-AoYb-XLQEqJCZUnKhGAqDzz6AQPRlf3tJs5N3EFsk9yXxtd~3AmQV2JFPAPoLd0mNJgNOvoU9DMw__') no-repeat center center/cover;
+      color: #fff;
+      text-align: left;
+      padding: 150px 10% 100px;
+      position: relative;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5); /* Adjust darkness here (0 = transparent, 1 = solid) */
+      z-index: 1;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -50px;
+      left: 0;
+      width: 100%;
+      height: 100px;
+      background: #fff;
+      clip-path: ellipse(70% 50% at 50% 100%);
+      z-index: 1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 600px;
+      margin-left: auto; /* Pushes content as far right as possible */
+      margin-right: 20%;  /* Adjust this value to control right alignment */
+    }
+
+    .hero h1 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      margin-bottom: 20px;
+      font-size: 1.2rem;
+      line-height: 1.5;
+    }
+
+    .hero input {
+      padding: 10px;
+      font-size: 1rem;
+      border: none;
+      border-radius: 5px;
+      width: 250px;
+      margin-right: 10px;
+    }
+
+    .hero button {
+      padding: 10px 20px;
+      font-size: 1rem;
+      border: none;
+      border-radius: 5px;
+      background: #007bff;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    /* Content Section */
+    .content-section {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 100px 10%;
+      background: #f9f9f9;
+    }
+
+    .content-section img {
+      max-width: 45%;
+      border-radius: 10px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .content-section div {
+      max-width: 45%;
+    }
+
+    .content-section h2 {
+      font-size: 2rem;
+      color: #333;
+      margin-bottom: 20px;
+    }
+
+    .content-section p {
+      font-size: 1rem;
+      color: #555;
+      line-height: 1.6;
+    }
+
+    /* Footer */
+    footer {
+      background: #f9f9f9;
+      text-align: center;
+      padding: 50px 10%;
+      font-size: 0.9rem;
+      color: #555;
+    }
+
+    footer a {
+      color: #007bff;
+      text-decoration: none;
+      margin: 0 10px;
+    }
+
+    footer .social-icons {
+      margin: 20px 0;
+    }
+
+    footer .social-icons a {
+      margin: 0 10px;
+      font-size: 1.5rem;
+      color: #007bff;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 1024px) {
+      /* Adjustments for tablets and smaller desktops */
+      .hero {
+        padding: 120px 5% 80px;
+      }
+
+      .hero-content h1 {
+        font-size: 2rem;
+      }
+
+      .hero p {
+        font-size: 1rem;
+      }
+
+      .hero input {
+        width: 200px;
+      }
+
+      .content-section {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .content-section img {
+        max-width: 80%;
+        margin-bottom: 20px;
+      }
+
+      .content-section div {
+        max-width: 100%;
+      }
+    }
+
+    @media (max-width: 768px) {
+      /* Adjustments for tablets and mobile devices */
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      header nav {
+        margin-top: 10px;
+      }
+
+      header a {
+        margin: 5px 0;
+        font-size: 0.85rem;
+      }
+
+      .hero {
+        padding: 100px 5% 60px;
+        text-align: center;
+      }
+
+      .hero-content {
+        margin: 0;
+        margin-right: 0;
+      }
+
+      .hero h1 {
+        font-size: 1.8rem;
+      }
+
+      .hero p {
+        font-size: 1rem;
+      }
+
+      .hero input {
+        width: 100%;
+        margin: 10px 0;
+      }
+
+      .hero button {
+        width: 100%;
+      }
+
+      .content-section {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .content-section img {
+        max-width: 80%;
+        margin-bottom: 20px;
+      }
+
+      .content-section div {
+        max-width: 100%;
+      }
+    }
+
+    @media (max-width: 480px) {
+      /* Adjustments for small mobile devices */
+      .hero {
+        padding: 80px 5% 40px;
+      }
+
+      .hero h1 {
+        font-size: 1.5rem;
+      }
+
+      .hero p {
+        font-size: 0.9rem;
+      }
+
+      .content-section h2 {
+        font-size: 1.5rem;
+      }
+
+      .content-section p {
+        font-size: 0.9rem;
+      }
+
+      footer {
+        padding: 30px 5%;
+        font-size: 0.8rem;
+      }
+
+      footer .social-icons a {
+        font-size: 1.2rem;
+      }
+    }
+
+    /* Specific Styling for Language Toggle */
+    /* Optional: Style the language toggle as a button or dropdown for better UX */
+    #language-toggle {
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <a href="index.html">
+        <img src="gs_new.png" alt="Giga Sphere Logo" data-key="logoAlt">
+      </a>
+    </div>
+    <nav>
+      <a href="index.html" data-key="homepage">Homepage</a>
+      <a href="advanced-training.html" data-key="advancedTraining">Advanced Training</a>
+      <a href="location.html" data-key="location">Location</a>
+      <a href="#" id="language-toggle" data-key="language">Français | English</a>
+      <a href="enrollment.html" class="enroll-btn" data-key="enroll">Enroll</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h1 data-key="heroTitle">Unlock Your Child's Potential with Coding</h1>
+      <p data-key="heroSubtitle">Give your child the skills to succeed in tomorrow's world.<br>Sign up today and receive 10% off your first class!</p>
+      <input type="email" id="hero-email" placeholder="Your email here" data-key="heroPlaceholder">
+      <button id="hero-enroll-button" data-key="heroButton">Enroll Now</button>
+    </div>
+  </section>
+  
+
+  <section class="content-section">
+    <img src="https://s3-alpha-sig.figma.com/img/c13e/4fac/7fc47e76b314856dad890c112e249a48?Expires=1739145600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=oZ1CKGc2yNv0szYbusa~E6jkTy9dCjwrmDZ9~FdYjUrMUAT2y5JDF0OZk9nt8eysepxCgwAJSRizmP9YWYkQgEZ3OCCxe5vkH1MzjCX3ITY~NtwHPAzdh737BZWTYjCdtUlBNrXKbyZThM83VEtPCMo-tpNMLgsUUhu3iNE2T31Y5KeK5DWHyhGTl1ILP119qgThO4c64csIbiMCCdbWZnmu7JUd8y4nTCWI2Cgfpqc2higmsUkQqskHDMeoD7oIxBUC3vUWKfBGmEoD6Ul36lwl-F2dr2yAUi2an5PfM7Jf86z63knXVXqtLq9vSfwbtQ02N1Po~5HkWUwlreKDWQ__" alt="AI and Data Science" data-key="aiDataScienceImage">
+    <div>
+      <h2 data-key="aiDataScienceTitle">AI & Data Science Learning</h2>
+      <p data-key="aiDataScienceDesc">Dive into the world of Artificial Intelligence, Machine Learning, and Data Science. Learn essential tools and techniques, including Power BI, Tableau, and other data analytics software, to excel in this fast-growing field.</p>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <div>
+      <h2 data-key="workplaceTrainingTitle">Workplace & Software Training</h2>
+      <p data-key="workplaceTrainingDesc">Equip yourself with the practical skills required in today’s job market. Our training covers Microsoft Word, Excel, WordPress, and more. Gain hands-on experience with essential workplace tools to enhance productivity and performance.</p>
+    </div>
+    <img src="https://s3-alpha-sig.figma.com/img/d08f/7ee5/3cdeaa45449d16529f36f02184c1dab8?Expires=1739145600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=CuqGGQjwbJCrf21idE5sZNPB1pXJFgXvvAKucvdSAPPWG1RERbULDGPMlrSiDmfK6beyH38A4FPwHRgpZBamo2PxvLfxvhsvmvYjCpPNLga22QdLIrj6Puz~6PEjF03or94k5p~nubFUfdQJ7SbF8NAthi0XySERSm7P0cpZLhNVyJANav3i8iz0GOHAywascrIlGrfmy6EMQZvIRFj4wP97rWkgUueEdErknqpwYQmtntDkIL1LVIiNqLMGSNOjYqs81IfFIm7YZovx3te-UOchyWH0Lb5TknxYa-RFQ-VEbb5shLDjanVoD4iGfxCyDf~CTshMkCxbKrq6owathQ__" alt="Workplace Training" data-key="workplaceTrainingImage">
+  </section>
+
+  <footer>
+    <!-- COMING SOON Announcement -->
+    <div class="coming-soon">COMING SOON</div>
+    
+    <!-- Social Media Icons (non-clickable) -->
+    <div class="social-icons">
+      <span class="social-icon">
+        <img src="facebook_logo.webp" alt="Facebook Logo">
+      </span>
+      <span class="social-icon">
+        <img src="ig_logo.webp" alt="Instagram Logo">
+      </span>
+      <span class="social-icon">
+        <img src="linkedin_logo.webp" alt="LinkedIN Logo">
+      </span>
+    </div>
+    
+    <!-- Existing Footer Text -->
+    <p data-key="footer">© 2024 Giga Sphere. All rights reserved.</p>
+  </footer>
+  
+  <style>
+    /* Style for the "COMING SOON" announcement */
+    .coming-soon {
+      font-size: 1.5rem;       /* Increase for bigger text */
+      text-align: center;
+      font-weight: bold;
+      margin-bottom: 20px;
+      /* color: #007bff; */
+    }
+  
+    /* Style for the social media icons container */
+    .social-icons {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-bottom: 20px;
+    }
+  
+    /* Style for individual social media icons */
+    .social-icon img {
+      width: 30px;           /* Smaller icons */
+      height: auto;
+      transition: transform 0.3s ease;
+    }
+  
+    .social-icon img:hover {
+      transform: scale(1.1); /* Optional hover effect */
+    }
+  </style>
+
+  <!-- Language Toggle Script -->
+  <script>
+    const translations = {
+      "en": {
+        "title": "Giga Sphere - Advanced Training",
+        "homepage": "Homepage",
+        "advancedTraining": "Advanced Training",
+        "location": "Location",
+        "language": "Français | English",
+        "enroll": "Enroll",
+        "heroTitle": "Empower Your Future with Advanced Skills",
+        "heroSubtitle": "Master AI, data analytics, and essential workplace tools while driving growth with expert digital strategies.",
+        "heroPlaceholder": "Your email here",
+        "heroButton": "Enroll Now",
+        "aiDataScienceTitle": "AI & Data Science Learning",
+        "aiDataScienceDesc": "Dive into the world of Artificial Intelligence, Machine Learning, and Data Science. Learn essential tools and techniques, including Power BI, Tableau, and other data analytics software, to excel in this fast-growing field.",
+        "workplaceTrainingTitle": "Workplace & Software Training",
+        "workplaceTrainingDesc": "Equip yourself with the practical skills required in today’s job market. Our training covers Microsoft Word, Excel, WordPress, and more. Gain hands-on experience with essential workplace tools to enhance productivity and performance.",
+        "footer": "© 2024 Giga Sphere. All rights reserved."
+      },
+      "fr": {
+        "title": "Giga Sphere - Formation Avancée",
+        "homepage": "Page d'accueil",
+        "advancedTraining": "Formation Avancée",
+        "location": "Emplacement",
+        "language": "Français | English",
+        "enroll": "S'inscrire",
+        "heroTitle": "Renforcez Votre Avenir avec des Compétences Avancées",
+        "heroSubtitle": "Maîtrisez l'IA, l'analyse de données et les outils essentiels du lieu de travail tout en stimulant la croissance avec des stratégies numériques expertes.",
+        "heroPlaceholder": "Votre email ici",
+        "heroButton": "S'inscrire Maintenant",
+        "aiDataScienceTitle": "Apprentissage de l'IA et de la Science des Données",
+        "aiDataScienceDesc": "Plongez dans le monde de l'Intelligence Artificielle, de l'Apprentissage Automatique et de la Science des Données. Apprenez les outils et techniques essentiels, y compris Power BI, Tableau et autres logiciels d'analyse de données, pour exceller dans ce domaine en pleine croissance.",
+        "workplaceTrainingTitle": "Formation en Milieu de Travail et Logiciels",
+        "workplaceTrainingDesc": "Équipez-vous des compétences pratiques requises sur le marché du travail actuel. Notre formation couvre Microsoft Word, Excel, WordPress et plus encore. Acquérez une expérience pratique avec des outils essentiels du lieu de travail pour améliorer la productivité et les performances.",
+        "footer": "© 2024 Giga Sphere. Tous droits réservés."
+      }
+    };
+
+    // Set default language
+    let currentLanguage = 'en';
+
+    const languageToggle = document.getElementById('language-toggle');
+
+    languageToggle.addEventListener('click', (e) => {
+      e.preventDefault(); // Prevent default link behavior
+      // Toggle language
+      currentLanguage = currentLanguage === 'en' ? 'fr' : 'en';
+      // Save the preference
+      localStorage.setItem('language', currentLanguage);
+      // Update the language on the page
+      updateLanguage();
+    });
+
+    function updateLanguage() {
+      // Update the page title
+      document.querySelector('title').textContent = translations[currentLanguage]['title'];
+
+      // Select all elements with data-key attribute
+      const elements = document.querySelectorAll('[data-key]');
+
+      elements.forEach(element => {
+        const key = element.getAttribute('data-key');
+
+        // Handle specific elements differently
+        if (element.tagName.toLowerCase() === 'input') {
+          // For input placeholders
+          element.setAttribute('placeholder', translations[currentLanguage][key]);
+        } else if (element.tagName.toLowerCase() === 'button') {
+          // For buttons
+          element.textContent = translations[currentLanguage][key];
+        } else if (element.tagName.toLowerCase() === 'a' && element !== languageToggle) {
+          // For links except the language toggle
+          element.textContent = translations[currentLanguage][key];
+        } else if (element.tagName.toLowerCase() === 'p' || element.tagName.toLowerCase() === 'h1' || element.tagName.toLowerCase() === 'h2' || element.tagName.toLowerCase() === 'h3') {
+          // For paragraphs and headings
+          element.innerHTML = translations[currentLanguage][key];
+        } else if (element.tagName.toLowerCase() === 'title') {
+          // Already handled
+        } else {
+          // Default case
+          element.textContent = translations[currentLanguage][key];
+        }
+
+        // Update alt attributes for images if applicable
+        if (element.tagName.toLowerCase() === 'img' && translations[currentLanguage][key + 'Alt']) {
+          element.setAttribute('alt', translations[currentLanguage][key + 'Alt']);
+        }
+      });
+
+      // Update the language toggle button text
+      languageToggle.textContent = currentLanguage === 'en' ? 'Français' : 'English';
+
+
+      // Update the lang attribute in the html tag
+      document.documentElement.lang = currentLanguage;
+    }
+
+    // Check if a language preference is stored
+    const storedLanguage = localStorage.getItem('language');
+    if (storedLanguage) {
+      currentLanguage = storedLanguage;
+    }
+
+    // Initialize the page with the saved or default language
+    updateLanguage();
+  </script>
+
+  <!-- Language Toggle Script -->
+<script>
+  // Existing bilingual script (if any)
+  // ...
+
+  // New Script for Handling Enrollment Redirection
+  document.getElementById('hero-enroll-button').addEventListener('click', function() {
+    const emailInput = document.getElementById('hero-email');
+    const email = emailInput.value.trim();
+
+    // Simple Email Validation Regex
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (email === "") {
+      alert("Please enter your email address.");
+      emailInput.focus();
+      return;
+    }
+
+    if (!emailRegex.test(email)) {
+      alert("Please enter a valid email address.");
+      emailInput.focus();
+      return;
+    }
+
+    // Store the email in sessionStorage
+    sessionStorage.setItem('userEmail', email);
+
+    // Redirect to enrollment.html
+    window.location.href = 'enrollment.html';
+  });
+</script>
+
+</body>
+</html>

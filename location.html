@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en" data-current-language="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title data-key="title">Giga Sphere - Locations</title>
+  <link href="https://fonts.googleapis.com/css2?family=Spartan:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <style>
+    /* Reset and basic styling */
+    body {
+      margin: 0;
+      font-family: 'Spartan', sans-serif;
+      line-height: 1.6;
+      background: #fff;
+    }
+
+    /* Header */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 10%;
+      background: #fff;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    header a {
+      text-decoration: none;
+      color: #333;
+      margin: 0 10px;
+      font-size: 1rem;
+    }
+
+    header .enroll-btn {
+      background: #007bff;
+      color: #fff;
+      padding: 8px 15px;
+      border-radius: 5px;
+      font-weight: bold;
+    }
+
+    /* Hero Section */
+    .hero {
+      background: url('https://s3-alpha-sig.figma.com/img/7e53/b61d/30dc0017af7010089ceb94ecee938cdb?Expires=1739145600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=ULSbGuCbk3EPAYJFkX1mx7S-bc01QZtWnQqK2mdFe~pN9sAyYeC7-C4dDvDkmgnPIgyMjMN63w351xgx1F207yD4muKRhtlCQ0DZmX3vg~zrJ9hcFggWOdumM0-Yt~eOAgXjh-5Nyi1nZUkfXWHyCdVyv8l6ec6XOOfXTDGqxdilVQVlSJTUoPjIaTOuxqvDTGjde4VEKpArGuL~mKqjpm7te~NhxmedhbDnWUur94CtKmyxs06v~DZfVITlY25H3AL50imxtcuoYCcIjaZ05HSQrL5n47iy~2QgEsQHhMsX-IrD8RtiVMuW8pby7l3SRXSPrzEhb-j9QygeZTYToQ__') no-repeat center center/cover;
+      color: #fff;
+      text-align: center;
+      padding: 150px 10% 100px;
+      position: relative;
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.2); /* Adjust darkness here (0 = transparent, 1 = solid) */
+      z-index: 1;
+    }
+
+    .hero h1 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+
+    /* Location Section */
+    .location {
+      text-align: center;
+      padding: 100px 10%;
+    }
+
+    .location h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+
+    .location-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 50px;
+      flex-wrap: wrap;
+    }
+
+    .location-info {
+      text-align: left;
+      max-width: 300px;
+    }
+
+    .location-info p {
+      font-size: 1rem;
+      color: #555;
+    }
+
+    .location iframe {
+      width: 500px;
+      height: 350px;
+      border-radius: 10px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Footer */
+    footer {
+      background: #f9f9f9;
+      text-align: center;
+      padding: 50px 10%;
+      font-size: 0.9rem;
+      color: #555;
+    }
+
+    footer a {
+      color: #007bff;
+      text-decoration: none;
+      margin: 0 10px;
+    }
+
+    footer .social-icons {
+      margin: 20px 0;
+    }
+
+    footer .social-icons a {
+      margin: 0 10px;
+      font-size: 1.5rem;
+      color: #007bff;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 1024px) {
+      /* Adjustments for tablets and smaller desktops */
+      .hero {
+        padding: 120px 5% 80px;
+      }
+
+      .hero h1 {
+        font-size: 2rem;
+      }
+
+      .hero p {
+        font-size: 1rem;
+      }
+
+      .hero input {
+        width: 200px;
+      }
+
+      .location-container {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .location iframe {
+        width: 80%;
+        height: auto;
+        margin-top: 20px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      /* Adjustments for tablets and mobile devices */
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      header nav {
+        margin-top: 10px;
+      }
+
+      header a {
+        margin: 5px 0;
+        font-size: 0.85rem;
+      }
+
+      .hero {
+        padding: 100px 5% 60px;
+        text-align: center;
+      }
+
+      .hero-content {
+        margin: 0;
+        margin-right: 0;
+      }
+
+      .hero h1 {
+        font-size: 1.8rem;
+      }
+
+      .hero p {
+        font-size: 1rem;
+      }
+
+      .hero input {
+        width: 100%;
+        margin: 10px 0;
+      }
+
+      .hero button {
+        width: 100%;
+      }
+
+      .location-container {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .location iframe {
+        width: 80%;
+        height: auto;
+        margin-top: 20px;
+      }
+
+      .location-info {
+        max-width: 100%;
+      }
+    }
+
+    @media (max-width: 480px) {
+      /* Adjustments for small mobile devices */
+      .hero {
+        padding: 80px 5% 40px;
+      }
+
+      .hero h1 {
+        font-size: 1.5rem;
+      }
+
+      .hero p {
+        font-size: 0.9rem;
+      }
+
+      .location h2 {
+        font-size: 1.5rem;
+      }
+
+      .location p {
+        font-size: 0.9rem;
+      }
+
+      footer {
+        padding: 30px 5%;
+        font-size: 0.8rem;
+      }
+
+      footer .social-icons a {
+        font-size: 1.2rem;
+      }
+    }
+
+    /* Specific Styling for Language Toggle */
+    /* Optional: Style the language toggle as a button or dropdown for better UX */
+    #language-toggle {
+      cursor: pointer;
+      padding: 5px 10px;
+      border: 1px solid #007bff;
+      border-radius: 5px;
+      color: #007bff;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    #language-toggle:hover {
+      background: #007bff;
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+          <a href="index.html">
+            <img src="gs_new.png" alt="Giga Sphere Logo" data-key="logoAlt">
+          </a>
+        </div>
+        <nav>
+          <a href="index.html" data-key="homepage">Homepage</a>
+          <a href="advanced-training.html" data-key="advancedTraining">Advanced Training</a>
+          <a href="location.html" data-key="location">Location</a>
+          <a href="#" id="language-toggle" data-key="language">Français | English</a>
+          <a href="enrollment.html" class="enroll-btn" data-key="enroll">Enroll</a>
+        </nav>
+      </header>
+
+  <section class="hero">
+    <h1 data-key="heroTitle">Our Locations</h1>
+  </section>
+
+  <section class="location">
+    <h2 data-key="locationTitle">Montreal</h2>
+    <div class="location-container">
+      <div class="location-info">
+        <p><strong data-key="officeName">GigaSphere Office</strong></p>
+        <p data-key="officeAddress">5250 Ferrier St, Montreal, Quebec H4P 1L3</p>
+        <p data-key="officeEmail">✉️ contact@gigasphere.ca</p>
+      </div>
+      <iframe 
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2795.053583712629!2d-73.66197912364088!3d45.4970731710588!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4cc91a7b1fd8f6f1%3A0x36741c19571d0bc6!2s5250%20Ferrier%20St%2C%20Montreal%2C%20QC%20H4P%201L3%2C%20Canada!5e0!3m2!1sen!2sca!4v1700000000000!5m2!1sen!2sca" 
+        width="500" height="350" style="border:0;" allowfullscreen="" loading="lazy"
+        data-key="mapIframe">
+      </iframe>
+    </div>
+  </section>
+
+
+  <footer>
+    <!-- COMING SOON Announcement -->
+    <div class="coming-soon">COMING SOON</div>
+    
+    <!-- Social Media Icons (non-clickable) -->
+    <div class="social-icons">
+      <span class="social-icon">
+        <img src="facebook_logo.webp" alt="Facebook Logo">
+      </span>
+      <span class="social-icon">
+        <img src="ig_logo.webp" alt="Instagram Logo">
+      </span>
+      <span class="social-icon">
+        <img src="linkedin_logo.webp" alt="LinkedIN Logo">
+      </span>
+    </div>
+    
+    <!-- Existing Footer Text -->
+    <p data-key="footer">© 2024 Giga Sphere. All rights reserved.</p>
+  </footer>
+  
+  <style>
+    /* Style for the "COMING SOON" announcement */
+    .coming-soon {
+      font-size: 1.5rem;       /* Increase for bigger text */
+      text-align: center;
+      font-weight: bold;
+      margin-bottom: 20px;
+      /* color: #007bff; */
+    }
+  
+    /* Style for the social media icons container */
+    .social-icons {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-bottom: 20px;
+    }
+  
+    /* Style for individual social media icons */
+    .social-icon img {
+      width: 30px;           /* Smaller icons */
+      height: auto;
+      transition: transform 0.3s ease;
+    }
+  
+    .social-icon img:hover {
+      transform: scale(1.1); /* Optional hover effect */
+    }
+  </style>
+
+  <!-- Language Toggle Script -->
+  <script>
+    const translations = {
+      "en": {
+        "title": "Giga Sphere - Locations",
+        "homepage": "Homepage",
+        "advancedTraining": "Advanced Training",
+        "location": "Location",
+        "language": "Français | English",
+        "enroll": "Enroll",
+        "heroTitle": "Our Locations",
+        "locationTitle": "Montreal",
+        "officeName": "GigaSphere Office",
+        "officeAddress": "5250 Ferrier St, Montreal, Quebec H4P 1L3",
+        "officeEmail": "✉️ contact@gigasphere.ca",
+        "footer": "© 2024 Giga Sphere. All rights reserved.",
+        "logoAlt": "Giga Sphere Logo"
+      },
+      "fr": {
+        "title": "Giga Sphere - Emplacements",
+        "homepage": "Page d'accueil",
+        "advancedTraining": "Formation Avancée",
+        "location": "Emplacement",
+        "language": "Français | English",
+        "enroll": "S'inscrire",
+        "heroTitle": "Nos Emplacements",
+        "locationTitle": "Montréal",
+        "officeName": "Bureau GigaSphere",
+        "officeAddress": "5250 Ferrier St, Montréal, Québec H4P 1L3",
+        "officeEmail": "✉️ contact@gigasphere.ca",
+        "footer": "© 2024 Giga Sphere. Tous droits réservés.",
+        "logoAlt": "Logo de Giga Sphere"
+      }
+    };
+
+    // Set default language
+    let currentLanguage = 'en';
+
+    // Check if a language preference is stored
+    const storedLanguage = localStorage.getItem('language');
+    if (storedLanguage) {
+      currentLanguage = storedLanguage;
+    }
+
+    const languageToggle = document.getElementById('language-toggle');
+
+    languageToggle.addEventListener('click', (e) => {
+      e.preventDefault(); // Prevent default link behavior
+      // Toggle language
+      currentLanguage = currentLanguage === 'en' ? 'fr' : 'en';
+      // Save the preference
+      localStorage.setItem('language', currentLanguage);
+      // Update the language on the page
+      updateLanguage();
+    });
+
+    function updateLanguage() {
+      // Update the page title
+      document.querySelector('title').textContent = translations[currentLanguage]['title'];
+
+      // Select all elements with data-key attribute
+      const elements = document.querySelectorAll('[data-key]');
+
+      elements.forEach(element => {
+        const key = element.getAttribute('data-key');
+
+        // Handle specific elements differently
+        if (element.tagName.toLowerCase() === 'input') {
+          // For input placeholders
+          element.setAttribute('placeholder', translations[currentLanguage][key]);
+        } else if (element.tagName.toLowerCase() === 'button') {
+          // For buttons
+          element.textContent = translations[currentLanguage][key];
+        } else if (element.tagName.toLowerCase() === 'a' && element !== languageToggle) {
+          // For links except the language toggle
+          element.textContent = translations[currentLanguage][key];
+        } else if (element.tagName.toLowerCase() === 'p' || element.tagName.toLowerCase() === 'h1' || element.tagName.toLowerCase() === 'h2') {
+          // For paragraphs and headings
+          element.innerHTML = translations[currentLanguage][key];
+        } else if (element.tagName.toLowerCase() === 'img') {
+          // For images, update alt text if available
+          if (translations[currentLanguage][key + 'Alt']) {
+            element.setAttribute('alt', translations[currentLanguage][key + 'Alt']);
+          }
+        } else {
+          // Default case
+          element.textContent = translations[currentLanguage][key];
+        }
+      });
+
+      // Update the language toggle button text
+      languageToggle.textContent = currentLanguage === 'en' ? 'Français' : 'English';
+
+
+      // Update the lang attribute in the html tag
+      document.documentElement.lang = currentLanguage;
+    }
+
+    // Initialize the page with the saved or default language
+    updateLanguage();
+  </script>
+</body>
+</html>

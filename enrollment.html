@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en" data-current-language="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title data-key="title">Giga Sphere - Enrollment</title>
+  <link href="https://fonts.googleapis.com/css2?family=Spartan:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <style>
+    /* Reset and basic styling */
+    body {
+      margin: 0;
+      font-family: 'Spartan', sans-serif;
+      line-height: 1.6;
+      background: #fff;
+    }
+
+    /* Header */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 10%;
+      background: #fff;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    header a {
+      text-decoration: none;
+      color: #333;
+      margin: 0 10px;
+      font-size: 1rem;
+    }
+
+    header .enroll-btn {
+      background: #007bff;
+      color: #fff;
+      padding: 8px 15px;
+      border-radius: 5px;
+      font-weight: bold;
+    }
+
+    /* Hero Section */
+    .hero {
+      background: url('https://s3-alpha-sig.figma.com/img/c3c5/e271/64048b70cce2bdcadd8631cd78a309df?Expires=1739145600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=aDgcugDs7qbuFNwkBwUPZIznPUUKC6q5cG8AxEyCMSYcSizra441eBEaDnGjvnrPXa0Gl~9c16C3Wey~Verq0SKB7k~MeaLQqN~NTRXGIGj5ghSBLABQ08~9iOP6RO-m8XIgW8nvwIffZry~HwB6F-a2E8htfNrTVsG35~ccLmNcLnI0cjCDCnpBJMj5IcM9cDmICg0s4YLOFb9PVOytGYkVGDFpsuTkr23jI9zH2qVsbC-T2WcxQkipEwYj5~fMdVZcWu8Mg-AoYb-XLQEqJCZUnKhGAqDzz6AQPRlf3tJs5N3EFsk9yXxtd~3AmQV2JFPAPoLd0mNJgNOvoU9DMw__') no-repeat center center/cover;
+      color: #fff;
+      text-align: center;
+      padding: 150px 10% 100px;
+      position: relative;
+    }
+    .hero::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.3); /* Adjust darkness here (0 = transparent, 1 = solid) */
+        z-index: 1;
+    }
+
+    .hero h1 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+
+    /* Enrollment Form */
+    .enrollment {
+      padding: 100px 10%;
+      text-align: center;
+    }
+
+    .enrollment h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+
+    .form-container {
+      max-width: 600px;
+      margin: 0 auto;
+      text-align: left;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    .form-group label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    .form-group input, 
+    .form-group select, 
+    .form-group textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 1rem;
+    }
+
+    .form-group textarea {
+      height: 100px;
+    }
+
+    .submit-btn {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      font-size: 1rem;
+      border: none;
+      border-radius: 5px;
+      background: #007bff;
+      color: #fff;
+      cursor: pointer;
+      text-align: center;
+    }
+
+    /* Footer */
+    footer {
+      background: #f9f9f9;
+      text-align: center;
+      padding: 50px 10%;
+      font-size: 0.9rem;
+      color: #555;
+    }
+
+    footer a {
+      color: #007bff;
+      text-decoration: none;
+      margin: 0 10px;
+    }
+
+    footer .social-icons {
+      margin: 20px 0;
+    }
+
+    footer .social-icons a {
+      margin: 0 10px;
+      font-size: 1.5rem;
+      color: #007bff;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 1024px) {
+      .hero {
+        padding: 120px 5% 80px;
+      }
+      .hero h1 {
+        font-size: 2rem;
+      }
+      .enrollment h2 {
+        font-size: 1.8rem;
+      }
+      .form-container {
+        width: 90%;
+      }
+    }
+
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      header nav {
+        margin-top: 10px;
+      }
+      header a {
+        margin: 5px 0;
+        font-size: 0.85rem;
+      }
+      .hero {
+        padding: 100px 5% 60px;
+        text-align: center;
+      }
+      .hero h1 {
+        font-size: 1.8rem;
+      }
+      .enrollment h2 {
+        font-size: 1.6rem;
+      }
+      .form-container {
+        width: 100%;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero {
+        padding: 80px 5% 40px;
+      }
+      .hero h1 {
+        font-size: 1.5rem;
+      }
+      .enrollment h2 {
+        font-size: 1.4rem;
+      }
+      .form-group input, 
+      .form-group select, 
+      .form-group textarea {
+        font-size: 0.9rem;
+      }
+      .submit-btn {
+        font-size: 0.9rem;
+      }
+      footer {
+        padding: 30px 5%;
+        font-size: 0.8rem;
+      }
+      footer .social-icons a {
+        font-size: 1.2rem;
+      }
+    }
+
+    /* Specific Styling for Language Toggle */
+    #language-toggle {
+      cursor: pointer;
+      padding: 5px 10px;
+      border: 1px solid #007bff;
+      border-radius: 5px;
+      color: #007bff;
+      transition: background 0.3s, color 0.3s;
+    }
+    #language-toggle:hover {
+      background: #007bff;
+      color: #fff;
+    }
+
+    /* Custom Toggle for Experience */
+    .custom-toggle {
+      display: flex;
+      gap: 10px;
+      margin-top: 5px;
+    }
+    .toggle-option {
+      padding: 10px 20px;
+      background-color: #f0f0f0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      cursor: pointer;
+      text-align: center;
+      transition: background-color 0.3s ease;
+      user-select: none;
+    }
+    .toggle-option.active {
+      background-color: #007bff;
+      color: #fff;
+      border-color: #007bff;
+    }
+    .custom-toggle input[type="radio"] {
+      display: none;
+    }
+
+  </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+          <a href="index.html">
+            <img src="gs_new.png" alt="Giga Sphere Logo" data-key="logoAlt">
+          </a>
+        </div>
+        <nav>
+          <a href="index.html" data-key="homepage">Homepage</a>
+          <a href="advanced-training.html" data-key="advancedTraining">Advanced Training</a>
+          <a href="location.html" data-key="location">Location</a>
+          <a href="#" id="language-toggle" data-key="language">Français | English</a>
+          <a href="enrollment.html" class="enroll-btn" data-key="enroll">Enroll</a>
+        </nav>
+    </header>
+
+  <section class="hero">
+    <h1 data-key="heroTitle">Reserve Your Spot</h1>
+    <p data-key="heroSubtitle">Sign up today and receive 10% off your first class!</p>
+  </section>
+
+  <section class="enrollment">
+    <h2 data-key="enrollmentTitle">Your Information</h2>
+    <div class="form-container">
+      <form
+        action="https://formspree.io/f/xpwqrwav"
+        method="POST"
+      >
+        <!-- Kid's Name -->
+        <div class="form-group">
+          <label for="kid-name" data-key="kidNameLabel">Kid's Name:</label>
+          <input 
+            type="text" 
+            id="kid-name" 
+            name="kid-name" 
+            placeholder="Enter your kid's name" 
+            data-key="kidNamePlaceholder" 
+            required
+          >
+        </div>
+
+        <!-- Parent's Name -->
+        <div class="form-group">
+          <label for="parent-name" data-key="parentNameLabel">Parent's Name:</label>
+          <input 
+            type="text" 
+            id="parent-name" 
+            name="parent-name" 
+            placeholder="Enter your name" 
+            data-key="parentNamePlaceholder" 
+            required
+          >
+        </div>
+
+        <!-- Email Address -->
+        <div class="form-group">
+          <label for="email" data-key="emailLabel">Email Address:</label>
+          <input 
+            type="email" 
+            id="email" 
+            name="email" 
+            placeholder="Enter your email" 
+            data-key="emailPlaceholder" 
+            required
+          >
+        </div>
+
+        <!-- Phone Number -->
+        <div class="form-group">
+          <label for="phone" data-key="phoneLabel">Phone Number (Optional):</label>
+          <input 
+            type="text" 
+            id="phone" 
+            name="phone" 
+            placeholder="Enter your phone number" 
+            data-key="phonePlaceholder"
+          >
+        </div>
+
+        <!-- Has Coding Experience (Restyled Toggle) -->
+        <div class="form-group">
+          <label for="experience" data-key="experienceLabel">Has GREPPING experience:</label>
+          <div class="custom-toggle">
+            <label class="toggle-option">
+              <input type="radio" name="experience" value="yes" required> Yes
+            </label>
+            <label class="toggle-option">
+              <input type="radio" name="experience" value="no" required> No
+            </label>
+          </div>
+        </div>
+
+        <!-- Start Month Dropdown -->
+        <div class="form-group">
+          <label for="start-month" data-key="startDateLabel">Select Start Month:</label>
+          <select id="start-month" name="start-month" required></select>
+        </div>
+
+        <!-- Start Day (Saturdays/Sundays Only) -->
+        <div class="form-group" id="start-day-group" style="display: none;">
+          <label for="start-day">Select Start Day (Saturdays or Sundays):</label>
+          <select id="start-day" name="start-day" required></select>
+        </div>
+
+        <!-- Additional Info -->
+        <div class="form-group">
+          <label for="additional-info" data-key="additionalInfoLabel">Additional Info:</label>
+          <textarea 
+            id="additional-info" 
+            name="additional-info" 
+            placeholder="Any additional information" 
+            data-key="additionalInfoPlaceholder"
+          ></textarea>
+        </div>
+
+        <!-- Submit -->
+        <button type="submit" class="submit-btn" data-key="submitButton">Enroll Now</button>
+      </form>
+    </div>
+  </section>
+
+  <footer>
+    <!-- COMING SOON Announcement -->
+    <div class="coming-soon">COMING SOON</div>
+    
+    <!-- Social Media Icons (non-clickable) -->
+    <div class="social-icons">
+      <span class="social-icon">
+        <img src="facebook_logo.webp" alt="Facebook Logo">
+      </span>
+      <span class="social-icon">
+        <img src="ig_logo.webp" alt="Instagram Logo">
+      </span>
+      <span class="social-icon">
+        <img src="linkedin_logo.webp" alt="LinkedIN Logo">
+      </span>
+    </div>
+    
+    <!-- Existing Footer Text -->
+    <p data-key="footer">© 2024 Giga Sphere. All rights reserved.</p>
+  </footer>
+  
+  <style>
+    /* Style for the "COMING SOON" announcement */
+    .coming-soon {
+      font-size: 1.5rem;       /* Increase for bigger text */
+      text-align: center;
+      font-weight: bold;
+      margin-bottom: 20px;
+      /* color: #007bff; */
+    }
+  
+    /* Style for the social media icons container */
+    .social-icons {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-bottom: 20px;
+    }
+  
+    /* Style for individual social media icons */
+    .social-icon img {
+      width: 30px;           /* Smaller icons */
+      height: auto;
+      transition: transform 0.3s ease;
+    }
+  
+    .social-icon img:hover {
+      transform: scale(1.1); /* Optional hover effect */
+    }
+  </style>
+
+  <!-- Language Toggle and Custom Logic -->
+  <script>
+    /************************************
+     *      MONTH & WEEKEND LOGIC       *
+     ************************************/
+    const monthDropdown = document.getElementById('start-month');
+    const dayDropdown = document.getElementById('start-day');
+    const startDayGroup = document.getElementById('start-day-group');
+
+    const today = new Date();
+    const currentMonth = today.getMonth();
+    const currentYear = today.getFullYear();
+    const monthNames = [
+      'January', 'February', 'March', 'April', 'May', 'June',
+      'July', 'August', 'September', 'October', 'November', 'December'
+    ];
+
+    // Populate the month dropdown from current month until December
+    for (let i = currentMonth; i < 12; i++) {
+      const opt = document.createElement('option');
+      opt.value = i + '-' + currentYear;
+      opt.textContent = monthNames[i];
+      monthDropdown.appendChild(opt);
+    }
+
+    // Populate weekend days after user selects a month
+    monthDropdown.addEventListener('change', () => {
+      const [selectedM, selectedY] = monthDropdown.value.split('-');
+      const month = parseInt(selectedM);
+      const year = parseInt(selectedY);
+
+      // Clear previously populated days
+      dayDropdown.innerHTML = '';
+
+      const daysInMonth = new Date(year, month + 1, 0).getDate();
+      for (let day = 1; day <= daysInMonth; day++) {
+        const date = new Date(year, month, day);
+        const dayOfWeek = date.getDay();
+        // 0 = Sunday, 6 = Saturday
+        if (dayOfWeek === 0 || dayOfWeek === 6) {
+          const opt = document.createElement('option');
+          opt.value = date.toISOString().split('T')[0];
+          opt.textContent = `${monthNames[month]} ${day}, ${year}`;
+          dayDropdown.appendChild(opt);
+        }
+      }
+      // Show or hide the day dropdown
+      startDayGroup.style.display = dayDropdown.options.length > 0 ? 'block' : 'none';
+    });
+
+    /************************************
+     *    TOGGLE STYLE FOR EXPERIENCE   *
+     ************************************/
+    document.querySelectorAll('.toggle-option').forEach(option => {
+      option.addEventListener('click', () => {
+        // Remove active state from all
+        document.querySelectorAll('.toggle-option').forEach(el => el.classList.remove('active'));
+        // Mark this one active + set its radio to checked
+        option.classList.add('active');
+        option.querySelector('input').checked = true;
+      });
+    });
+
+    /************************************
+     *         LANGUAGE TOGGLE          *
+     ************************************/
+    const translations = {
+      "en": {
+        "title": "Giga Sphere - Enrollment",
+        "homepage": "Homepage",
+        "advancedTraining": "Advanced Training",
+        "location": "Location",
+        "language": "Français | English",
+        "enroll": "Enroll",
+        "heroTitle": "Reserve Your Spot",
+        "heroSubtitle": "Sign up today and receive 10% off your first class!",
+        "enrollmentTitle": "Your Information",
+        "kidNameLabel": "Kid's Name:",
+        "kidNamePlaceholder": "Enter your kid's name",
+        "parentNameLabel": "Parent's Name:",
+        "parentNamePlaceholder": "Enter your name",
+        "emailLabel": "Email Address:",
+        "emailPlaceholder": "Enter your email",
+        "phoneLabel": "Phone Number (Optional):",
+        "phonePlaceholder": "Enter your phone number",
+        "experienceLabel": "Has Coding Experience:",
+        "experienceYes": "Yes",
+        "experienceNo": "No",
+        "startDateLabel": "Interested Start Date:",
+        "startDatePlaceholder": "",
+        "additionalInfoLabel": "Additional Info:",
+        "additionalInfoPlaceholder": "Any additional information",
+        "submitButton": "Enroll Now",
+        "footer": "© 2024 Giga Sphere. All rights reserved.",
+        "logoAlt": "Giga Sphere Logo"
+      },
+      "fr": {
+        "title": "Giga Sphere - Inscription",
+        "homepage": "Page d'accueil",
+        "advancedTraining": "Formation Avancée",
+        "location": "Emplacement",
+        "language": "Français | English",
+        "enroll": "S'inscrire",
+        "heroTitle": "Réservez Votre Place",
+        "heroSubtitle": "Inscrivez-vous aujourd'hui et recevez 10 % de réduction sur votre premier cours !",
+        "enrollmentTitle": "Vos Informations",
+        "kidNameLabel": "Nom de l'Enfant :",
+        "kidNamePlaceholder": "Entrez le nom de votre enfant",
+        "parentNameLabel": "Nom du Parent :",
+        "parentNamePlaceholder": "Entrez votre nom",
+        "emailLabel": "Adresse Email :",
+        "emailPlaceholder": "Entrez votre email",
+        "phoneLabel": "Numéro de Téléphone (Optionnel) :",
+        "phonePlaceholder": "Entrez votre numéro de téléphone",
+        "experienceLabel": "Avez-vous de l'Expérience en Programmation :",
+        "experienceYes": "Oui",
+        "experienceNo": "Non",
+        "startDateLabel": "Date de Début Souhaitée :",
+        "startDatePlaceholder": "",
+        "additionalInfoLabel": "Informations Supplémentaires :",
+        "additionalInfoPlaceholder": "Toute information supplémentaire",
+        "submitButton": "S'inscrire Maintenant",
+        "footer": "© 2024 Giga Sphere. Tous droits réservés.",
+        "logoAlt": "Logo de Giga Sphere"
+      }
+    };
+
+    // Set default or stored language
+    let currentLanguage = 'en';
+    const storedLanguage = localStorage.getItem('language');
+    if (storedLanguage) currentLanguage = storedLanguage;
+
+    const languageToggle = document.getElementById('language-toggle');
+    languageToggle.addEventListener('click', e => {
+      e.preventDefault();
+      currentLanguage = currentLanguage === 'en' ? 'fr' : 'en';
+      localStorage.setItem('language', currentLanguage);
+      updateLanguage();
+    });
+
+    function updateLanguage() {
+      document.querySelector('title').textContent = translations[currentLanguage]['title'];
+      const elements = document.querySelectorAll('[data-key]');
+      elements.forEach(element => {
+        const key = element.getAttribute('data-key');
+        if (element.tagName.toLowerCase() === 'input') {
+          // For input placeholders
+          const placeholder = translations[currentLanguage][key];
+          if (placeholder !== undefined) {
+            element.setAttribute('placeholder', placeholder);
+          }
+        } else if (element.tagName.toLowerCase() === 'textarea') {
+          // For textarea placeholders
+          const placeholder = translations[currentLanguage][key];
+          if (placeholder !== undefined) {
+            element.setAttribute('placeholder', placeholder);
+          }
+        } else if (element.tagName.toLowerCase() === 'button') {
+          // For buttons
+          element.textContent = translations[currentLanguage][key];
+        } else if (element.tagName.toLowerCase() === 'option') {
+          // For select options
+          element.textContent = translations[currentLanguage][key];
+        } else if (
+          element.tagName.toLowerCase() === 'p' ||
+          element.tagName.toLowerCase() === 'h1' ||
+          element.tagName.toLowerCase() === 'h2'
+        ) {
+          // For paragraphs and headings
+          element.innerHTML = translations[currentLanguage][key];
+        } else if (element.tagName.toLowerCase() === 'img') {
+          // For images, update alt text if available
+          if (translations[currentLanguage][key + 'Alt']) {
+            element.setAttribute('alt', translations[currentLanguage][key + 'Alt']);
+          }
+        } else {
+          element.textContent = translations[currentLanguage][key];
+        }
+      });
+
+      // Toggle button text
+      languageToggle.textContent = currentLanguage === 'en' ? 'Français' : 'English';
+      // Update lang attr
+      document.documentElement.lang = currentLanguage;
+    }
+
+    // Initialize the page with the saved or default language
+    updateLanguage();
+  </script>
+</body>
+</html>

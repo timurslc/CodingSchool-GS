@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title data-key="title">Giga CODING- Coding for Kids</title>
+  <link href="https://fonts.googleapis.com/css2?family=Spartan:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <style>
+    /* Basic Styling */
+    body {
+      margin: 0;
+      font-family: 'Spartan', sans-serif;
+      line-height: 1.6;
+      background: #fff;
+    }
+
+    /* Header */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 10%;
+      background: #fff;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .logo img {
+      max-height: 50px;
+      width: auto;
+    }
+
+    header a {
+      text-decoration: none;
+      color: #333;
+      margin: 0 10px;
+      font-size: 0.9rem;
+    }
+
+    header .enroll-btn {
+      background: #007bff;
+      color: #fff;
+      padding: 8px 15px;
+      border-radius: 5px;
+      font-weight: bold;
+      font-size: 0.9rem;
+    }
+
+    /* Hero Section */
+    .hero {
+      background: url('homepage_kids.png') no-repeat center center/cover;
+      color: #fff;
+      text-align: right;
+      padding: 150px 10% 100px;
+      position: relative;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -50px;
+      left: 0;
+      width: 100%;
+      height: 100px;
+      background: #fff;
+      clip-path: ellipse(70% 50% at 50% 100%);
+      z-index: 1;
+    }
+
+    .hero-content {
+      max-width: 600px;
+      margin-left: auto;
+      text-align: left;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero h1 {
+      font-size: 2rem;
+      margin-bottom: 15px;
+    }
+
+    .hero p {
+      margin-bottom: 20px;
+      font-size: 1rem;
+      line-height: 1.5;
+    }
+
+    .hero input {
+      padding: 8px;
+      font-size: 0.9rem;
+      border: none;
+      border-radius: 5px;
+      width: 200px;
+      margin-right: 10px;
+    }
+
+    .hero button {
+      padding: 8px 20px;
+      font-size: 0.9rem;
+      border: none;
+      border-radius: 5px;
+      background: #007bff;
+      color: #fff;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .hero button:hover {
+      background: #0056b3;
+    }
+
+    /* Why Coding Section */
+    .why-coding {
+      background: #f9f9f9;
+      padding: 80px 10%;
+    }
+
+    .why-coding h2 {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 40px;
+      color: #2d2d2d;
+    }
+
+    .why-coding-container {
+      display: flex;
+      align-items: stretch;
+      justify-content: space-between;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+
+    .features {
+      flex: 1;
+      min-width: 300px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .feature {
+      display: flex;
+      align-items: flex-start;
+      background: #fff;
+      padding: 15px;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      flex: 1;
+    }
+
+    .feature-icon {
+      font-size: 1.5rem;
+      color: #007bff;
+      margin-right: 15px;
+    }
+
+    .feature-icon img {
+      width: 40px; /* Set a fixed size for consistency */
+      height: 40px;
+      object-fit: contain;
+    }
+
+    .feature-content h3 {
+      font-size: 1.2rem;
+      color: #2d2d2d;
+      margin-bottom: 8px;
+    }
+
+    .feature-content p {
+      font-size: 0.9rem;
+      color: #555;
+      margin: 0;
+    }
+
+    .why-coding-image {
+      flex: 1;
+      min-width: 300px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .why-coding-image img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+      transform: rotate(10deg);
+    }
+
+    .why-coding-image img:hover {
+      transform: rotate(10deg) scale(1.05);
+    }
+
+    /* Footer */
+    footer {
+      background: #f9f9f9;
+      text-align: center;
+      padding: 50px 10%;
+      font-size: 0.5rem;
+      color: #555;
+    }
+
+    footer a {
+      color: #007bff;
+      text-decoration: none;
+      margin: 0 10px;
+    }
+
+    footer .social-icons a {
+      margin: 0 08px;
+      font-size: 1.0rem;
+      color: #007bff;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 1024px) {
+      /* Adjustments for tablets and smaller desktops */
+      .hero {
+        padding: 120px 5% 80px;
+      }
+
+      .hero-content h1 {
+        font-size: 1.8rem;
+      }
+
+      .hero p {
+        font-size: 0.95rem;
+      }
+
+      .hero input {
+        width: 180px;
+      }
+
+      .why-coding-container {
+        gap: 30px;
+      }
+
+      .feature {
+        padding: 12px;
+      }
+
+      .feature-icon {
+        font-size: 1.3rem;
+      }
+
+      .feature-content h3 {
+        font-size: 1.1rem;
+      }
+
+      .feature-content p {
+        font-size: 0.85rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      /* Adjustments for tablets and mobile devices */
+      .why-coding-container {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .why-coding-image {
+        margin-top: 20px;
+      }
+
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      header nav {
+        margin-top: 10px;
+      }
+
+      header a {
+        margin: 5px 0;
+        font-size: 0.85rem;
+      }
+
+      .hero {
+        padding: 100px 5% 60px;
+        text-align: center;
+      }
+
+      .hero-content {
+        margin: 0;
+      }
+
+      .hero h1 {
+        font-size: 1.5rem;
+      }
+
+      .hero p {
+        font-size: 0.9rem;
+      }
+
+      .hero input {
+        width: 100%;
+        margin: 10px 0;
+      }
+
+      .hero button {
+        width: 100%;
+      }
+
+      .features {
+        width: 100%;
+      }
+
+      .feature {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      .feature-icon {
+        margin-right: 0;
+        margin-bottom: 10px;
+      }
+
+      .why-coding-image img {
+        max-width: 80%;
+      }
+    }
+
+    @media (max-width: 480px) {
+      /* Adjustments for small mobile devices */
+      .hero {
+        padding: 80px 5% 40px;
+      }
+
+      .hero h1 {
+        font-size: 1.3rem;
+      }
+
+      .hero p {
+        font-size: 0.85rem;
+      }
+
+      .why-coding h2 {
+        font-size: 1.8rem;
+      }
+
+      footer {
+        padding: 30px 5%;
+        font-size: 0.75rem;
+      }
+
+      footer .social-icons a {
+        font-size: 1rem;
+      }
+    }
+
+    /* Specific Styling for K-12 Education & Coding Section */
+    .k12-section .why-coding-container {
+      display: flex;
+      flex-direction: column; /* Stack image and text vertically */
+      align-items: center;    /* Center items horizontally */
+      gap: 20px;              /* Space between image and text */
+      max-width: 800px;       /* Optional: Limit the overall width */
+      margin: 0 auto;         /* Center the container */
+    }
+
+    .k12-section .why-coding-image {
+      width: 100%;
+      display: flex;
+      justify-content: center; /* Center the image horizontally */
+    }
+
+    .k12-section .why-coding-image img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .k12-section .why-coding-image img:hover {
+      transform: scale(1.05); /* Slight zoom on hover */
+    }
+
+    .k12-section .features {
+      width: 100%;
+      max-width: 600px; /* Constrain the text width */
+    }
+
+    .k12-section .feature-content p {
+      text-align: left; /* Align text to the left */
+      font-size: 1rem;
+      color: #555;
+      line-height: 1.6;
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+          <a href="index.html">
+            <img src="gs_new.png" alt="Giga Sphere Logo" data-key="logoAlt">
+          </a>
+        </div>
+        <nav>
+          <a href="index.html" data-key="homepage">More Bugs</a>
+          <a href="advanced-training.html" data-key="advancedTraining">Advanced Training</a>
+          <a href="location.html" data-key="location">Location</a>
+          <a href="#" id="language-toggle" data-key="language">Français | English</a>
+          <a href="enrollment.html" class="enroll-btn" data-key="enroll">Enroll</a>
+        </nav>
+      </header>
+      
+      
+      
+
+  <section class="hero">
+    <div class="hero-content">
+      <h1 data-key="heroTitle">Unlock Your Child's Potential with Coding</h1>
+      <p data-key="heroSubtitle">Give your child the skills to succeed in tomorrow's world.<br>Sign up today and receive 10% off your first class!</p>
+      <input type="email" id="hero-email" placeholder="Your email here" data-key="heroPlaceholder">
+      <button id="hero-enroll-button" data-key="heroButton">Enroll Now</button>
+    </div>
+  </section>
+
+  <!-- First Why Coding Section -->
+  <section class="why-coding">
+    <h2 data-key="whyCodingTitle">Why Coding for Kids</h2>
+    <div class="why-coding-container">
+      <div class="features">
+        <div class="feature">
+          <div class="feature-icon">
+            <img src="star_logo.png" alt="Enhance Cognitive Skills Icon" loading="lazy">
+          </div>
+          <div class="feature-content">
+            <h3 data-key="feature1Title">Enhance Cognitive Skills</h3>
+            <p data-key="feature1Desc">Coding enhances problem-solving, critical thinking, and logical reasoning by simplifying complex tasks.</p>
+          </div>
+        </div>
+
+        <div class="feature">
+          <div class="feature-icon">
+            <img src="diamond_logo.png" alt="Foster Creativity Icon" loading="lazy">
+          </div>
+          <div class="feature-content">
+            <h3 data-key="feature2Title">Foster Creativity and Innovation</h3>
+            <p data-key="feature2Desc">Coding allows creative expression through designing games, websites, and apps.</p>
+          </div>
+        </div>
+
+        <div class="feature">
+          <div class="feature-icon">
+            <img src="lighning_logo.png" alt="Build Confidence Icon" loading="lazy">
+          </div>
+          <div class="feature-content">
+            <h3 data-key="feature3Title">Build Confidence and Future Readiness</h3>
+            <p data-key="feature3Desc">Learning coding builds confidence and provides skills useful for future tech careers.</p>
+          </div>
+        </div>
+      </div>
+      <div class="why-coding-image">
+        <img src="https://s3-alpha-sig.figma.com/img/aba1/8df5/f94003852825dc3b86a05161fe411a42?Expires=1739145600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=djWXI3K4DHHTVMd09B3JDa9XBD4fmwQFjp~IVjgCMcGsApHaXSVXo7ft38H8o7G4bz33tCmBIBjGdwMM2fqptP4ElWbN8fHmg2e5n1u4a2BEcOzsUrgE5y4CXfZZiDwlCDsTe1dhzLQwxkKSyE771KQUXur75RmBSV0gJ5Otu~XC4CJuHTgJ7d~orf3K2Tti8SnsdBpoSQZW79ql35NS01V7boM5SNYc8ynJAvO2XuzGlsEfYbojcT8kYlnyPgDwA57n4xPHSmnlbQfcbqj5RI2~9dNvA1oqGZhzHra3c0aEviyVeSma3F8RenxShnvMKIOBc80h~gLaMWoaCLRxag__" alt="Why Coding for Kids" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <!-- Updated K-12 Education & Coding Section -->
+  <section class="why-coding k12-section">
+    <h2 data-key="k12Title">K-12 Education & Coding (Ages 8-12)</h2>
+    <div class="why-coding-container">
+      <!-- Image Positioned Above the Text -->
+      <div class="why-coding-image">
+        <img src="next_logo.png" alt="K-12 Education & Coding" loading="lazy">
+      </div>
+      <div class="features">
+        <div class="feature">
+          <div class="feature-content">
+            <p data-key="k12Desc">
+              Our platform offers coding education for students ages 8 through 12, equipping them with foundational skills in technology. From basic coding principles to more advanced concepts, students will gain the knowledge they need to thrive in the digital world.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <!-- COMING SOON Announcement -->
+    <div class="coming-soon">COMING SOON</div>
+    
+    <!-- Social Media Icons (non-clickable) -->
+    <div class="social-icons">
+      <span class="social-icon">
+        <img src="facebook_logo.webp" alt="Facebook Logo">
+      </span>
+      <span class="social-icon">
+        <img src="ig_logo.webp" alt="Instagram Logo">
+      </span>
+      <span class="social-icon">
+        <img src="linkedin_logo.webp" alt="LinkedIN Logo">
+      </span>
+    </div>
+    
+    <!-- Existing Footer Text -->
+    <p data-key="footer">© 2024 Giga Sphere. All rights reserved.</p>
+  </footer>
+  
+  <style>
+    /* Style for the "COMING SOON" announcement */
+    .coming-soon {
+      font-size: 1.5rem;       /* Increase for bigger text */
+      text-align: center;
+      font-weight: bold;
+      margin-bottom: 20px;
+      /* color: #007bff; */
+    }
+  
+    /* Style for the social media icons container */
+    .social-icons {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-bottom: 20px;
+    }
+  
+    /* Style for individual social media icons */
+    .social-icon img {
+      width: 20px;           /* Smaller icons */
+      height: auto;
+      transition: transform 0.3s ease;
+    }
+  
+    .social-icon img:hover {
+      transform: scale(1.1); /* Optional hover effect */
+    }
+  </style>
+
+  <!-- Language Toggle Script -->
+  <script>
+    const translations = {
+      "en": {
+        "title": "Giga Sphere - Coding for Kids",
+        "homepage": "Homepage",
+        "advancedTraining": "Advanced Training",
+        "location": "Location",
+        "language": "Français | English",
+        "enroll": "Enroll",
+        "heroTitle": "Unlock Your Child's Potential with Coding",
+        "heroSubtitle": "Give your child the skills to succeed in tomorrow's world.<br>Sign up today and receive 10% off your first class!",
+        "heroPlaceholder": "Your email here",
+        "heroButton": "Enroll Now",
+        "whyCodingTitle": "Why Coding for Kids",
+        "feature1Title": "Enhance Cognitive Skills",
+        "feature1Desc": "Coding enhances problem-solving, critical thinking, and logical reasoning by simplifying complex tasks.",
+        "feature2Title": "Foster Creativity and Innovation",
+        "feature2Desc": "Coding allows creative expression through designing games, websites, and apps.",
+        "feature3Title": "Build Confidence and Future Readiness",
+        "feature3Desc": "Learning coding builds confidence and provides skills useful for future tech careers.",
+        "k12Title": "K-12 Education & Coding (Ages 8-12)",
+        "k12Desc": "Our platform offers coding education for students ages 8 through 12, equipping them with foundational skills in technology. From basic coding principles to more advanced concepts, students will gain the knowledge they need to thrive in the digital world.",
+        "footer": "© 2024 Giga Sphere. All rights reserved."
+      },
+      "fr": {
+        "title": "Giga Sphere - Programmation pour Enfants",
+        "homepage": "Page d'accueil",
+        "advancedTraining": "Formation Avancée",
+        "location": "Emplacement",
+        "language": "Français | English",
+        "enroll": "S'inscrire",
+        "heroTitle": "Débloquez le Potentiel de Votre Enfant avec la Programmation",
+        "heroSubtitle": "Donnez à votre enfant les compétences nécessaires pour réussir dans le monde de demain.<br>Inscrivez-vous aujourd'hui et recevez 10 % de réduction sur votre premier cours !",
+        "heroPlaceholder": "Votre email ici",
+        "heroButton": "S'inscrire Maintenant",
+        "whyCodingTitle": "Pourquoi la Programmation pour les Enfants",
+        "feature1Title": "Améliorer les Compétences Cognitives",
+        "feature1Desc": "La programmation améliore la résolution de problèmes, la pensée critique et le raisonnement logique en simplifiant des tâches complexes.",
+        "feature2Title": "Favoriser la Créativité et l'Innovation",
+        "feature2Desc": "La programmation permet l'expression créative à travers la conception de jeux, de sites Web et d'applications.",
+        "feature3Title": "Renforcer la Confiance et la Préparation pour l'Avenir",
+        "feature3Desc": "Apprendre la programmation renforce la confiance et fournit des compétences utiles pour les carrières technologiques futures.",
+        "k12Title": "Éducation K-12 et Programmation (Âges 8-12)",
+        "k12Desc": "Notre plateforme propose une éducation en programmation pour les élèves de 8 à 12 ans, leur fournissant des compétences fondamentales en technologie. Des principes de base de la programmation aux concepts plus avancés, les élèves acquerront les connaissances nécessaires pour prospérer dans le monde numérique.",
+        "footer": "© 2024 Giga Sphere. Tous droits réservés."
+      }
+    };
+
+    // Set default language
+    let currentLanguage = 'en';
+
+    const languageToggle = document.getElementById('language-toggle');
+
+    languageToggle.addEventListener('click', (e) => {
+      e.preventDefault(); // Prevent default link behavior
+      // Toggle language
+      currentLanguage = currentLanguage === 'en' ? 'fr' : 'en';
+      // Update the language on the page
+      updateLanguage();
+    });
+
+    function updateLanguage() {
+      // Update the page title
+      document.querySelector('title').textContent = translations[currentLanguage]['title'];
+
+      // Select all elements with data-key attribute
+      const elements = document.querySelectorAll('[data-key]');
+
+      elements.forEach(element => {
+        const key = element.getAttribute('data-key');
+
+        // Handle specific elements differently
+        if (element.tagName.toLowerCase() === 'input') {
+          // For input placeholders
+          element.setAttribute('placeholder', translations[currentLanguage][key]);
+        } else if (element.tagName.toLowerCase() === 'button') {
+          // For buttons
+          element.textContent = translations[currentLanguage][key];
+        } else if (element.tagName.toLowerCase() === 'a' && element !== languageToggle) {
+          // For links except the language toggle
+          element.textContent = translations[currentLanguage][key];
+        } else if (element.tagName.toLowerCase() === 'p' || element.tagName.toLowerCase() === 'h1' || element.tagName.toLowerCase() === 'h2' || element.tagName.toLowerCase() === 'h3') {
+          // For paragraphs and headings
+          element.innerHTML = translations[currentLanguage][key];
+        } else if (element.tagName.toLowerCase() === 'title') {
+          // Already handled
+        } else {
+          // Default case
+          element.textContent = translations[currentLanguage][key];
+        }
+      });
+
+      // Handle images that have language-specific classes (if any)
+      const imagesEn = document.querySelectorAll('.lang-en');
+      const imagesFr = document.querySelectorAll('.lang-fr');
+
+      if (currentLanguage === 'en') {
+        imagesEn.forEach(img => img.style.display = 'block');
+        imagesFr.forEach(img => img.style.display = 'none');
+      } else {
+        imagesEn.forEach(img => img.style.display = 'none');
+        imagesFr.forEach(img => img.style.display = 'block');
+      }
+
+      // Update the language toggle button text
+      languageToggle.textContent = currentLanguage === 'en' ? 'Français' : 'English';
+
+
+      // Update the lang attribute in the html tag
+      document.documentElement.lang = currentLanguage;
+    }
+
+    // Initialize the page with the default language
+    updateLanguage();
+  </script>
+
+<!-- Language Toggle Script -->
+<script>
+    // Existing bilingual script (if any)
+    // ...
+  
+    // New Script for Handling Enrollment Redirection
+    document.getElementById('hero-enroll-button').addEventListener('click', function() {
+      const emailInput = document.getElementById('hero-email');
+      const email = emailInput.value.trim();
+  
+      // Simple Email Validation Regex
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  
+      if (email === "") {
+        alert("Please enter your email address.");
+        emailInput.focus();
+        return;
+      }
+  
+      if (!emailRegex.test(email)) {
+        alert("Please enter a valid email address.");
+        emailInput.focus();
+        return;
+      }
+  
+      // Store the email in sessionStorage
+      sessionStorage.setItem('userEmail', email);
+  
+      // Redirect to enrollment.html
+      window.location.href = 'enrollment.html';
+    });
+  </script>
+  
+</body>
+</html>
