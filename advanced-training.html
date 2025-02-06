@@ -63,7 +63,7 @@
     }
 
     .hero::after {
-      content: '';
+      /* content: '';
       position: absolute;
       bottom: -50px;
       left: 0;
@@ -71,7 +71,7 @@
       height: 100px;
       background: #fff;
       clip-path: ellipse(70% 50% at 50% 100%);
-      z-index: 1;
+      z-index: 1; */
     }
 
     .hero-content {
@@ -118,7 +118,7 @@
       align-items: center;
       justify-content: space-between;
       padding: 100px 10%;
-      background: #f9f9f9;
+      background: #fff;
     }
 
     .content-section img {
@@ -296,6 +296,16 @@
     /* Optional: Style the language toggle as a button or dropdown for better UX */
     #language-toggle {
       cursor: pointer;
+      padding: 5px 10px;
+      border: 1px solid #007bff;
+      border-radius: 5px;
+      color: #007bff;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    #language-toggle:hover {
+      background: #007bff;
+      color: #fff;
     }
   </style>
 </head>
@@ -342,25 +352,27 @@
   </section>
 
   <footer>
-    <!-- COMING SOON Announcement -->
-    <div class="coming-soon">Coming soon</div>
-    
-    <!-- Social Media Icons (non-clickable) -->
-    <div class="social-icons">
-      <span class="social-icon">
-        <img src="facebook_logo.webp" alt="Facebook Logo">
-      </span>
-      <span class="social-icon">
-        <img src="ig_logo.webp" alt="Instagram Logo">
-      </span>
-      <span class="social-icon">
-        <img src="linkedin_logo.webp" alt="LinkedIN Logo">
-      </span>
-    </div>
-    
     <!-- Existing Footer Text -->
     <p data-key="footer">© 2024 Giga Sphere. All rights reserved.</p>
+  
+    <!-- Integrated Image -->
+    <div class="footer-image">
+        <img src="fullgiga.png" alt="Giga Sphere Logo">
+    </div>
   </footer>
+
+  <style>
+    .footer-image {
+      text-align: center;
+      margin-top: 10px;
+    }
+  
+    .footer-image img {
+      max-width: 200px; /* Adjust width as needed */
+      height: auto;
+    }
+  </style>
+  
   
   <style>
     /* Style for the "COMING SOON" announcement */

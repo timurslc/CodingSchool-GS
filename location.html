@@ -51,21 +51,31 @@
       position: relative;
     }
     .hero::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.2); /* Adjust darkness here (0 = transparent, 1 = solid) */
-      z-index: 1;
-    }
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3); /* Dims the background image */
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2; /* So text stays above the overlay */
+}
 
     .hero h1 {
+      position: relative;
       font-size: 2.5rem;
       margin-bottom: 20px;
+      z-index: 2;
     }
-
+    .hero p {
+      position: relative;
+      z-index: 2;
+    }
     /* Location Section */
     .location {
       text-align: center;
@@ -304,25 +314,28 @@
 
 
   <footer>
-    <!-- COMING SOON Announcement -->
-    <div class="coming-soon">Coming soon</div>
-    
-    <!-- Social Media Icons (non-clickable) -->
-    <div class="social-icons">
-      <span class="social-icon">
-        <img src="facebook_logo.webp" alt="Facebook Logo">
-      </span>
-      <span class="social-icon">
-        <img src="ig_logo.webp" alt="Instagram Logo">
-      </span>
-      <span class="social-icon">
-        <img src="linkedin_logo.webp" alt="LinkedIN Logo">
-      </span>
-    </div>
-    
     <!-- Existing Footer Text -->
     <p data-key="footer">© 2024 Giga Sphere. All rights reserved.</p>
+  
+    <!-- Integrated Image -->
+    <div class="footer-image">
+        <img src="fullgiga.png" alt="Giga Sphere Logo">
+    </div>
   </footer>
+
+  <style>
+    .footer-image {
+      text-align: center;
+      margin-top: 10px;
+    }
+  
+    .footer-image img {
+      max-width: 200px; /* Adjust width as needed */
+      height: auto;
+    }
+  </style>
+  
+  
   
   <style>
     /* Style for the "COMING SOON" announcement */

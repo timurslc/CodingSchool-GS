@@ -27,16 +27,11 @@
       z-index: 1000;
     }
 
-    .logo img {
-      max-height: 50px;
-      width: auto;
-    }
-
     header a {
       text-decoration: none;
       color: #333;
       margin: 0 10px;
-      font-size: 0.9rem;
+      font-size: 1rem;
     }
 
     header .enroll-btn {
@@ -45,7 +40,6 @@
       padding: 8px 15px;
       border-radius: 5px;
       font-weight: bold;
-      font-size: 0.9rem;
     }
 
     /* Hero Section */
@@ -58,7 +52,7 @@
     }
 
     .hero::after {
-      content: '';
+      /* content: '';
       position: absolute;
       bottom: -50px;
       left: 0;
@@ -66,7 +60,7 @@
       height: 100px;
       background: #fff;
       clip-path: ellipse(70% 50% at 50% 100%);
-      z-index: 1;
+      z-index: 1; */
     }
 
     .hero-content {
@@ -144,10 +138,10 @@
     .feature {
       display: flex;
       align-items: flex-start;
-      background: #fff;
+      background: #f9f9f9;
       padding: 15px;
-      border-radius: 8px;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      /* border-radius: 8px; */
+      /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); */
       flex: 1;
     }
 
@@ -177,10 +171,10 @@
 
     .why-coding-image {
       flex: 1;
-      min-width: 300px;
+      min-width: 30px;
       display: flex;
-      justify-content: center;
-      align-items: center;
+      justify-content: left;
+      align-items: left;
       overflow: hidden;
     }
 
@@ -202,7 +196,7 @@
       background: #f9f9f9;
       text-align: center;
       padding: 50px 10%;
-      font-size: 0.5rem;
+      font-size: 0.9rem;
       color: #555;
     }
 
@@ -212,9 +206,13 @@
       margin: 0 10px;
     }
 
+    footer .social-icons {
+      margin: 20px 0;
+    }
+
     footer .social-icons a {
-      margin: 0 08px;
-      font-size: 1.0rem;
+      margin: 0 10px;
+      font-size: 1.5rem;
       color: #007bff;
     }
 
@@ -273,11 +271,9 @@
         flex-direction: column;
         align-items: flex-start;
       }
-
       header nav {
         margin-top: 10px;
       }
-
       header a {
         margin: 5px 0;
         font-size: 0.85rem;
@@ -355,48 +351,94 @@
       footer .social-icons a {
         font-size: 1rem;
       }
+    /* Specific Styling for Language Toggle */
+    /* Optional: Style the language toggle as a button or dropdown for better UX */
+
+    }
+  
+    #language-toggle {
+      cursor: pointer;
+      padding: 5px 10px;
+      border: 1px solid #007bff;
+      border-radius: 5px;
+      color: #007bff;
+      transition: background 0.3s, color 0.3s;
     }
 
-    /* Specific Styling for K-12 Education & Coding Section */
-    .k12-section .why-coding-container {
-      display: flex;
-      flex-direction: column; /* Stack image and text vertically */
-      align-items: center;    /* Center items horizontally */
-      gap: 20px;              /* Space between image and text */
-      max-width: 800px;       /* Optional: Limit the overall width */
-      margin: 0 auto;         /* Center the container */
+    #language-toggle:hover {
+      background: #007bff;
+      color: #fff;
     }
 
-    .k12-section .why-coding-image {
-      width: 100%;
-      display: flex;
-      justify-content: center; /* Center the image horizontally */
-    }
+/* K-12 Section Styling */
+.k12-section {
+  padding: 80px 10%;
+  background-color: #fff;
+}
 
-    .k12-section .why-coding-image img {
-      max-width: 100%;
-      height: auto;
-      border-radius: 10px;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      transition: transform 0.3s ease;
-    }
+.k12-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+}
 
-    .k12-section .why-coding-image img:hover {
-      transform: scale(1.05); /* Slight zoom on hover */
-    }
+.k12-text {
+  flex: 1;
+  max-width: 50%;
+}
 
-    .k12-section .features {
-      width: 100%;
-      max-width: 600px; /* Constrain the text width */
-    }
+.k12-text h2 {
+  font-size: 2rem;
+  color: #2d2d2d;
+  margin-bottom: 20px;
+}
 
-    .k12-section .feature-content p {
-      text-align: left; /* Align text to the left */
-      font-size: 1rem;
-      color: #555;
-      line-height: 1.6;
-      margin: 0;
-    }
+.k12-text p {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.6;
+}
+
+.k12-image {
+  flex: 1;
+  max-width: 50%;
+}
+
+.k12-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.k12-image img:hover {
+  transform: scale(1.05);
+}
+
+/* Responsive Design for Mobile */
+@media (max-width: 768px) {
+  .k12-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .k12-text, .k12-image {
+    max-width: 100%;
+  }
+}
+
+.k12-logo {
+  max-width: 150px; /* Limit the size of the container */
+  margin-bottom: 20px; /* Add some spacing below the logo if needed */
+}
+
+.k12-logo img {
+  width: 50%; /* The image will scale within the container */
+  height: auto; /* Maintain the aspect ratio */
+}
   </style>
 </head>
 <body>
@@ -414,9 +456,6 @@
           <a href="enrollment.html" class="enroll-btn" data-key="enroll">Enroll</a>
         </nav>
       </header>
-      
-      
-      
 
   <section class="hero">
     <div class="hero-content">
@@ -468,46 +507,50 @@
     </div>
   </section>
 
-  <!-- Updated K-12 Education & Coding Section -->
-  <section class="why-coding k12-section">
-    <h2 data-key="k12Title">K-12 Education & Coding (Ages 8-12)</h2>
-    <div class="why-coding-container">
-      <!-- Image Positioned Above the Text -->
-      <div class="why-coding-image">
-        <img src="next_logo.png" alt="K-12 Education & Coding" loading="lazy">
-      </div>
-      <div class="features">
-        <div class="feature">
-          <div class="feature-content">
-            <p data-key="k12Desc">
-              Our platform offers coding education for students ages 8 through 12, equipping them with foundational skills in technology. From basic coding principles to more advanced concepts, students will gain the knowledge they need to thrive in the digital world.
-            </p>
-          </div>
-        </div>
-      </div>
+<!-- Updated K-12 Education & Coding Section -->
+<section class="k12-section">
+  <!-- <div class="k12-logo">
+    <img src="next_logo.png" alt="K-12 Education & Coding" loading="lazy">
+  </div> -->
+  <div class="k12-container">
+    <!-- Text Content -->
+    <div class="k12-text">
+      <h2>K-12 Education & Coding (Ages 8-12)</h2>
+      <p>
+        Our platform offers coding education for students ages 8 through 12, equipping them with foundational skills in technology. From basic coding principles to more advanced concepts, students will gain the knowledge they need to thrive in the digital world.
+      </p>
     </div>
-  </section>
+    
+    <!-- Image Content -->
+    <div class="k12-image">
+      <img src="https://s3-alpha-sig.figma.com/img/0e93/01c5/be6fd25bc0eba8424ea604bff1898b41?Expires=1739750400&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=rdXQr86AxuG0QUeQGmmO7Kj2P9ipijASPbHcF0Xwxjvo7R6MqLZRob4q6x8dFTzUoSdBYWqFOkVr-7dSSg6KU07G4yw1gN0CuM8oHCo0E8LbN1d3dInm6Y87AvbkVLmfTH-PUPjT9DtqkjLhB1TVFnoSq3zZ9~RPpb3Kts5OXIf35QEwF5Hbxb-Vmzkw49dPLSS5bo3NFUYcj12FFgAsTqHv7dRa8rFwQETyRAk9wBON0FvebruuT5mGP~vBoNTdm3BmM6AgDWwgH4FVdb8BrG1EFImrYwdZrIFQYKZ~L7GvIKhWqTTIfK0uyVmvIxS2nbvJyNLjf1rJiqwCh1DWdQ__" alt="K-12 Coding Education" loading="lazy">
+    </div>
+  </div>
+</section>
 
-  <footer>
-    <!-- COMING SOON Announcement -->
-    <div class="coming-soon">Coming soon</div>
-    
-    <!-- Social Media Icons (non-clickable) -->
-    <div class="social-icons">
-      <span class="social-icon">
-        <img src="facebook_logo.webp" alt="Facebook Logo">
-      </span>
-      <span class="social-icon">
-        <img src="ig_logo.webp" alt="Instagram Logo">
-      </span>
-      <span class="social-icon">
-        <img src="linkedin_logo.webp" alt="LinkedIN Logo">
-      </span>
-    </div>
-    
-    <!-- Existing Footer Text -->
-    <p data-key="footer">© 2024 Giga Sphere. All rights reserved.</p>
-  </footer>
+
+<footer>
+  <!-- Existing Footer Text -->
+  <p data-key="footer">© 2024 Giga Sphere. All rights reserved.</p>
+
+  <!-- Integrated Image -->
+  <div class="footer-image">
+      <img src="fullgiga.png" alt="Giga Sphere Logo">
+  </div>
+</footer>
+
+<style>
+  .footer-image {
+    text-align: center;
+    margin-top: 10px;
+  }
+
+  .footer-image img {
+    max-width: 200px; /* Adjust width as needed */
+    height: auto;
+  }
+</style>
+
   
   <style>
     /* Style for the "COMING SOON" announcement */
@@ -598,6 +641,8 @@
       e.preventDefault(); // Prevent default link behavior
       // Toggle language
       currentLanguage = currentLanguage === 'en' ? 'fr' : 'en';
+      // Save the preference
+      localStorage.setItem('language', currentLanguage);
       // Update the language on the page
       updateLanguage();
     });
