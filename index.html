@@ -134,40 +134,40 @@
       flex-direction: column;
       gap: 20px;
     }
-
     .feature {
-      display: flex;
-      align-items: flex-start;
-      background: #f9f9f9;
-      padding: 15px;
-      /* border-radius: 8px; */
-      /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); */
-      flex: 1;
-    }
+  display: flex;
+  align-items: center; /* Aligns logo and text vertically */
+  gap: 15px; /* Space between icon and text */
+  background: #f9f9f9;
+  padding: 10px 15px;
+}
 
-    .feature-icon {
-      font-size: 1.5rem;
-      color: #007bff;
-      margin-right: 15px;
-    }
+.feature-icon img {
+  width: 50px; /* Adjust as needed */
+  height: 50px;
+  object-fit: contain;
+}
 
-    .feature-icon img {
-      width: 40px; /* Set a fixed size for consistency */
-      height: 40px;
-      object-fit: contain;
-    }
+.feature-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
 
-    .feature-content h3 {
-      font-size: 1.2rem;
-      color: #2d2d2d;
-      margin-bottom: 8px;
-    }
+.feature-content h3 {
+  margin: 0; /* Ensure proper spacing */
+  font-size: 1.4rem;
+  color: #2d2d2d;
+}
 
-    .feature-content p {
-      font-size: 0.9rem;
-      color: #555;
-      margin: 0;
-    }
+.feature-content p {
+  font-size: 0.9rem;
+  color: #555;
+  margin: 5px 0 0;
+}
+
+
+
 
     .why-coding-image {
       flex: 1;
@@ -179,13 +179,15 @@
     }
 
     .why-coding-image img {
-      max-width: 100%;
-      height: auto;
-      border-radius: 10px;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      transition: transform 0.3s ease;
-      transform: rotate(10deg);
-    }
+  max-width: 100%;
+  height: auto;
+  max-height: 500px; /* Restrict the max height */
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  transform: rotate(10deg);
+  object-fit: cover; /* Ensures no unwanted stretching */
+}
 
     .why-coding-image img:hover {
       transform: rotate(10deg) scale(1.05);
