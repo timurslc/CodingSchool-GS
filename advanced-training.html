@@ -113,7 +113,7 @@
     }
 
     /* Content Section */
-    .content-section_ai {
+    /* .content-section_ai {
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -140,7 +140,9 @@
       font-size: 1rem;
       color: #555;
       line-height: 1.6;
-    }
+    } */
+
+
 
     /* Content Section */
     .content-section {
@@ -150,6 +152,13 @@
       padding: 100px 10%;
       background: #fff;
     }
+    .content-section:nth-child(2n) {
+  background-color: #f9f9f9; /* Light gray for AI & Data section */
+}
+
+.content-section:nth-child(2n + 1) {
+  background-color: #fff; /* Default for odd sections */
+}
 
     .content-section img {
       max-width: 45%;
@@ -365,7 +374,7 @@
   </section>
   
 
-  <section class="content-section_ai">
+  <section class="content-section">
     <img src="https://s3-alpha-sig.figma.com/img/c13e/4fac/7fc47e76b314856dad890c112e249a48?Expires=1739145600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=oZ1CKGc2yNv0szYbusa~E6jkTy9dCjwrmDZ9~FdYjUrMUAT2y5JDF0OZk9nt8eysepxCgwAJSRizmP9YWYkQgEZ3OCCxe5vkH1MzjCX3ITY~NtwHPAzdh737BZWTYjCdtUlBNrXKbyZThM83VEtPCMo-tpNMLgsUUhu3iNE2T31Y5KeK5DWHyhGTl1ILP119qgThO4c64csIbiMCCdbWZnmu7JUd8y4nTCWI2Cgfpqc2higmsUkQqskHDMeoD7oIxBUC3vUWKfBGmEoD6Ul36lwl-F2dr2yAUi2an5PfM7Jf86z63knXVXqtLq9vSfwbtQ02N1Po~5HkWUwlreKDWQ__" alt="AI and Data Science" data-key="aiDataScienceImage">
     <div>
       <h2 data-key="aiDataScienceTitle">AI & Data</h2>
