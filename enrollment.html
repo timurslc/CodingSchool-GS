@@ -461,37 +461,46 @@
     ];
 
     // Populate the month dropdown from current month until December
-    for (let i = currentMonth; i < 12; i++) {
+// Populate the month dropdown from the current month until December
+for (let i = currentMonth; i < 12; i++) {
+  const opt = document.createElement('option');
+  opt.value = i + '-' + currentYear;
+  opt.textContent = monthNames[i];
+  monthDropdown.appendChild(opt);
+}
+
+// Automatically populate weekend days for the current month
+populateWeekendDays(currentMonth, currentYear);
+
+// Populate weekend days after user selects a month
+monthDropdown.addEventListener('change', () => {
+  const [selectedM, selectedY] = monthDropdown.value.split('-');
+  populateWeekendDays(parseInt(selectedM), parseInt(selectedY));
+});
+
+// Function to populate weekend days for a given month and year
+function populateWeekendDays(month, year) {
+  // Clear previously populated days
+  dayDropdown.innerHTML = '';
+
+  const daysInMonth = new Date(year, month + 1, 0).getDate();
+  for (let day = 1; day <= daysInMonth; day++) {
+    const date = new Date(year, month, day);
+    const dayOfWeek = date.getDay();
+    // 0 = Sunday, 6 = Saturday
+    if (dayOfWeek === 0 || dayOfWeek === 6) {
       const opt = document.createElement('option');
-      opt.value = i + '-' + currentYear;
-      opt.textContent = monthNames[i];
-      monthDropdown.appendChild(opt);
+      opt.value = date.toISOString().split('T')[0];
+      opt.textContent = `${monthNames[month]} ${day}, ${year}`;
+      dayDropdown.appendChild(opt);
     }
+  }
 
-    // Populate weekend days after user selects a month
-    monthDropdown.addEventListener('change', () => {
-      const [selectedM, selectedY] = monthDropdown.value.split('-');
-      const month = parseInt(selectedM);
-      const year = parseInt(selectedY);
+  // Show or hide the day dropdown
+  startDayGroup.style.display = dayDropdown.options.length > 0 ? 'block' : 'none';
+}
 
-      // Clear previously populated days
-      dayDropdown.innerHTML = '';
 
-      const daysInMonth = new Date(year, month + 1, 0).getDate();
-      for (let day = 1; day <= daysInMonth; day++) {
-        const date = new Date(year, month, day);
-        const dayOfWeek = date.getDay();
-        // 0 = Sunday, 6 = Saturday
-        if (dayOfWeek === 0 || dayOfWeek === 6) {
-          const opt = document.createElement('option');
-          opt.value = date.toISOString().split('T')[0];
-          opt.textContent = `${monthNames[month]} ${day}, ${year}`;
-          dayDropdown.appendChild(opt);
-        }
-      }
-      // Show or hide the day dropdown
-      startDayGroup.style.display = dayDropdown.options.length > 0 ? 'block' : 'none';
-    });
 
     /************************************
      *    TOGGLE STYLE FOR EXPERIENCE   *
